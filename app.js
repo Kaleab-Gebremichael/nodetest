@@ -14,18 +14,18 @@ app.get('/', (req,res) => {
 
 app.post('/', (req,res) => {
     arr.push(req.body.name);
-    // setTimeout(() => {
-    //     res.redirect('/');
-    // }, 3000);
 
     res.redirect('/');
 });
 
 app.post('/remove', (req,res) => {
 
+
   var index = arr.indexOf(req.body.name);
 
-  arr.splice(index, 1);
+  if (index > -1){
+    arr.splice(index, 1);
+  }
 
   res.redirect('/')
 });
